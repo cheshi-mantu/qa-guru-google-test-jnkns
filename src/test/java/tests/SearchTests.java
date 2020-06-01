@@ -29,7 +29,7 @@ class SearchTests extends TestBase {
             $(byName("q")).val(searchstring).pressEnter();
         });
         step("Check if searched string is present in search output", ()->{
-            $("html").shouldHave(text("Лепрозорий: вход"));
+            $("html").shouldHave(text(searchstring));
         });
     }
     @Test
@@ -41,7 +41,7 @@ class SearchTests extends TestBase {
             $(byName("q")).val(searchstring).pressEnter();
         });
         step("Check if searched string is present in search output", ()->{
-            $("html").shouldHave(text("Привет из Ухатя, сучечке"));
+            $("html").shouldHave(text("Привет из Уханя, сучечке"));
         });
     }
 
