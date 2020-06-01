@@ -20,12 +20,11 @@ import static helpers.Environment.*;
 @Story("Search tests")
 @Tag("search_test")
 class SearchTests extends TestBase {
+    @Test
+    @Description("Open page, search for string, try to match")
+    @DisplayName("Successful search test")
     void successfulSearch() {
-        Configuration.browser = "opera";
-        Configuration.startMaximized = true;
-        step("Open search page by URL {urlstring}", ()->{
-            open(urlstring);
-        });
+        step("Open search page by URL {urlstring}", ()-> open(urlstring));
         step("Enter search test {searchstring}", ()->{
             $(byName("q")).val(searchstring).pressEnter();
         });
@@ -33,4 +32,17 @@ class SearchTests extends TestBase {
             $("html").shouldHave(text("Лепрозорий: вход"));
         });
     }
+    @Test
+    @Description("Open page, search for string, try to match, but match is wrong")
+    @DisplayName("Unsuccessful search test, this will always fail")
+    void unSuccessfulSearch() {
+        step("Open search page by URL {urlstring}", ()-> open(urlstring));
+        step("Enter search test {searchstring}", ()->{
+            $(byName("q")).val(searchstring).pressEnter();
+        });
+        step("Check if searched string is present in search output", ()->{
+            $("html").shouldHave(text("Привет из Ухатя, сучечке"));
+        });
+    }
+
 }
