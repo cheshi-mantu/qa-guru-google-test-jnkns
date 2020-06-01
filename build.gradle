@@ -67,20 +67,11 @@ tasks.withType(Test) {
     systemProperties = System.properties
 }
 
-task facebook_tests(type: Test) {
+task search_tests(type: Test) {
     useJUnitPlatform {
-        includeTags 'facebook_test'
+        includeTags 'search_test'
     }
 }
-task google_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'google_test'
-    }
-}
-task yandex_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags 'yandex_test'
-    }
-}
+
 
 
