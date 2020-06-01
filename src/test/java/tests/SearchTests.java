@@ -18,7 +18,7 @@ import static helpers.Environment.*;
 
 @Epic("QA.GURU automation course")
 @Story("Search tests")
-@Tag("search_test")
+@Tag("search_tests")
 class SearchTests extends TestBase {
     @Test
     @Description("Open page, search for string, try to match")
